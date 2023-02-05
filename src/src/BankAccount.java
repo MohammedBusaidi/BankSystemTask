@@ -6,6 +6,7 @@ public class BankAccount {
 	private double balance;
 	private double depositAmount;
 	private double withdrawAmount;
+	double limit = 100;
 
 	//getter
 	public String getAccountHolderName() {
@@ -48,10 +49,12 @@ public class BankAccount {
 	}
 	public double withdraw() {
 		try {
-		    if (this.withdrawAmount > this.getBalance()) {
+		    if (this.getWithdrawAmount() > this.getBalance()) {
 		        throw new Exception("Insufficient Funds");
+		    } else if ( this.getWithdrawAmount() > 100) {
+		    	System.out.println("Amount exceeded the limit");
 		    } else {
-		        this.setBalance(this.getBalance() - this.withdrawAmount);
+		        this.setBalance(this.getBalance() - this.getWithdrawAmount());
 		        System.out.println("Amount Withdrawn, your balance now is: " + this.getBalance());
 		    }
 		} catch (Exception e) {

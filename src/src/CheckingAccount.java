@@ -1,23 +1,19 @@
 package src;
 
-public class CheckingAccount extends BankAccount{
-	private double limit = 100;
-	public void limit(double limit) {
-		this.limit = limit;
-	}
-	public double limit() {
-		return limit;
-	}
+public class CheckingAccount extends BankAccount {
+	
 	public double withdraw(double withdrawAmount) {
 		
-        if (withdrawAmount > this.getBalance() + this.limit()) {
-            System.out.println("Withdrawal amount exceeded the limit");
-            return withdrawAmount;
-        } 
-       
-        else {
-            this.setBalance(this.getBalance() - withdrawAmount);
-        }
-        return withdrawAmount;
+		try {
+		    if (this.getWithdrawAmount() > this.getBalance() || this.getWithdrawAmount() > 100) {
+		        throw new Exception("Insufficient Funds");
+		    } else {
+		        this.setBalance(this.getBalance() - this.getWithdrawAmount());
+		        System.out.println("Amount Withdrawn, your balance now is: " + this.getBalance());
+		    }
+		} catch (Exception e) {
+		    System.out.println("Something went wrong, please try again.");
+		}
+		return withdrawAmount;
 	}
 }

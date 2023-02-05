@@ -2,3 +2,5 @@
                 said      345345435435345                 20.0                100.0                 80.0
         Account name       Account number              Balance       Deposit Amount      Withdraw Amount
             mohammed           6456565656                720.0               1000.0                300.0
+        Account name       Account number              Balance       Deposit Amount      Withdraw Amount
+               Afrah           2342343242                500.0               1000.0                500.0
